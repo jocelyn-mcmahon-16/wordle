@@ -25,8 +25,7 @@ int main() {
 
 
     startGame(tries, matches, attempt);
-    std::cout << "Enter your guess (word length must be " + std::to_string(word_length) + ") or type Q to quit: ";
-
+    printInstructions(attempt);
 
     while (attempt < attempts) {
       
@@ -36,13 +35,15 @@ int main() {
         } while (guess != "Q" && !isValid(guess));
         
         if (guess == "Q") {
-            std::cout << "Quit game" << std::endl;
+            std::cout << "Quit game. The word was " << solution << std::endl;
             break;
         }
+
         tries[attempt] = guess;
         checkGuess(matches, attempt, solution, guess);
         printGuesses(tries, matches, attempt);
         attempt++;
+
         if (isAllMatch(solution, guess)) {
             std::cout << "You found the word! :D" << std::endl;
             checkAttempts(attempt, solution, guess);
