@@ -130,7 +130,7 @@ void printGuesses(std::vector<std::string> tries, std::vector<std::vector<int>> 
 }
 
 
-int checkAttempts(int attempt, std::string solution, std::string guess) {
+void checkAttempts(int attempt, std::string solution, std::string guess) {
     if (guess == solution) {
         switch (attempt) {
             case 1:
