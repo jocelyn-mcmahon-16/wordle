@@ -35,7 +35,7 @@ int main() {
         } while (guess != "Q" && !isValid(guess));
         
         if (guess == "Q") {
-            std::cout << "Quit game. The word was " << solution << std::endl;
+            std::cout << "Quit game. The word was: " << solution << std::endl;
             break;
         }
 
