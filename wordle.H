@@ -11,7 +11,6 @@
 #include <random>
 #include <string>
 #include <vector>
-#include <Windows.h>
 
 const int word_length = 5;
 const int NOT_MATCH = 0;

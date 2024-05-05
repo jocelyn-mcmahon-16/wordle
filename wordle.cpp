@@ -3,7 +3,6 @@
 #include <string>
 #include <algorithm>
 #include <cctype>
-#include <Windows.h>
 #include "wordle.H"
 
 int main() {
