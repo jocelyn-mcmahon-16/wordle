@@ -2,12 +2,10 @@
 #define WORDLE_H
 
 #include <algorithm>
-#include <cctype>
 #include <ctime>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
-#include <iterator>
 #include <random>
 #include <string>
 #include <vector>

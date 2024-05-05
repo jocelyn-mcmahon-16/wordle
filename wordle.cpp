@@ -1,8 +1,8 @@
-#include <iostream>
-#include <vector>
-#include <string>
 #include <algorithm>
-#include <cctype>
+#include <iostream>
+#include <string>
+#include <vector>
+
 #include "wordle.H"
 
 int main() {
@@ -20,10 +20,8 @@ int main() {
     std::vector<std::string> tries(attempts);    
     std::vector<std::vector<int>> matches(attempts, std::vector<int>(word_length));
 
-
     std::string solution = chooseSolution();
     raiseCase(solution);
-    std::cout << solution << std::endl;
 
 
     startGame(tries, matches, attempt);
