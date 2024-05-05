@@ -17,7 +17,7 @@ const int MATCH = 2;
 const int num_guesses = 6;
 
 
-std::string chooseSolution() { //was getRandomWord
+std::string chooseSolution() {
     std::vector<std::string> out;
     std::vector<std::string> solutions;
     std::ifstream file ("solutions.txt");
@@ -28,12 +28,10 @@ std::string chooseSolution() { //was getRandomWord
         }
     }
     
-    // this is what I want! Now just need help updating g++ so I can run it
     // std::sample(solutions.begin(), solutions.end(), std::back_inserter(out), 1, std::mt19937{std::random_device{}()});
     // std::string solution = out[0];
 
     // seed rng
-    // this is the only one so far that is giving me a different solution every time, but it just essentially runs through the words in alphabetical order...
     srand(time(NULL));    
     int solution_value = std::rand() % solutions.size();
 
@@ -46,12 +44,11 @@ void raiseCase(std::string &guess) {
     { return std::toupper(c); });
 }
 
-bool isValid(std::string solution) {  //was isValid
-    // TODO check solution correctness from API (e.g. WordsAPI)
+bool isValid(std::string solution) {
     return solution.length() == word_length && solution.find_first_not_of("ABCDEFGHIJKLMNOPQRSTUVWXYZ") == std::string::npos;
 }
 
-void checkGuess(std::vector<std::vector<int>> &matches, int tryIndex, std::string solution, std::string guess) { // was markMatch
+void checkGuess(std::vector<std::vector<int>> &matches, int tryIndex, std::string solution, std::string guess) {
     for (int i = 0; i < guess.length(); i++) {
         matches[tryIndex][i] = NOT_MATCH;
     }
@@ -70,7 +67,7 @@ void checkGuess(std::vector<std::vector<int>> &matches, int tryIndex, std::strin
 }
 
 
-bool isAllMatch(std::string solution, std::string guess) { // was isAllMatch
+bool isAllMatch(std::string solution, std::string guess) {
     for (int i = 0; i < guess.length(); i++) {
         if (guess[i] != solution[i])
             return false;
@@ -79,7 +76,7 @@ bool isAllMatch(std::string solution, std::string guess) { // was isAllMatch
 }
 
 
-void startGame(std::vector<std::string> tries, std::vector<std::vector<int>> matches, int attempt) { // was printWordle
+void startGame(std::vector<std::string> tries, std::vector<std::vector<int>> matches, int attempt) {
     system("cls");
     std::cout << "=================================================================" << std::endl;
     std::cout << "|                                                               |" << std::endl;
@@ -95,7 +92,14 @@ void startGame(std::vector<std::string> tries, std::vector<std::vector<int>> mat
     std::cout << "=================================================================" << std::endl;
 }
 
-void printGuesses(std::vector<std::string> tries, std::vector<std::vector<int>> matches, int attempt) { // this is a new funciton I separated out
+void printInstructions(int attempt) {
+    std::cout << "Welcome to Wordle!" << std::endl;
+    std::cout << "You have 6 attempts to guess a 5 letter word. Once you have made a guess," << std::endl;
+    std::cout << "letters that are not in the word will be printed in WHITE, \nletters in the word but not in the correct position will be printed in \033[33mYELLOW\033[0m, \nand letters that are in the correct position will be printed in \033[32mGREEN\033[0m." << std::endl;
+    std::cout << "Enter a guess to start the game or type Q to quit: " << std::endl;
+}
+
+void printGuesses(std::vector<std::string> tries, std::vector<std::vector<int>> matches, int attempt) {
     for (int i = 0; i <= attempt && i < tries.size(); i++) {
         std::string separator = "-";
         std::string padding = "|";
