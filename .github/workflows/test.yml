@@ -17,7 +17,7 @@ jobs:
 
       - name: Build
         run: |
-          make wordle
+          make wordle_game
 
       - name: Compile
         run: |
