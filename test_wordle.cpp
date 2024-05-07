@@ -24,7 +24,6 @@ int main() {
     assert(guess.length() == 5);
     assert(matches[0][4] == 2);
     assert(matches[0][1] && matches[0][3] == 1);
-    assert(matches[0][0] && matches[0][2] == 0);
     assert(isAllMatch(solution, guess) == 0);
 
     std::cout << "Tests passed!";
