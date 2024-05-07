@@ -1,4 +1,4 @@
-main: wordle_game
+main: wordle
 
 # wordle.o: wordle.cpp wordle.H
 #	g++ -c wordle.cpp
