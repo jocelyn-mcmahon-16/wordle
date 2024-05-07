@@ -14,7 +14,6 @@ int main() {
     std::string guess;
     int attempt = 0;
 
-    std::vector<std::string> tries(attempts);    
     std::vector<std::vector<int>> matches(attempts, std::vector<int>(word_length));
     
     // just choose a solution that is 5 letters for comparison purposes
@@ -22,8 +21,6 @@ int main() {
     std::cout << "Testing checkGuess function" << std::endl;
     guess = "earth";
     checkGuess(matches, attempt, solution, guess);
-
-    
 
     assert(guess.length() == 5);
     assert(matches[0][4] == 2);
