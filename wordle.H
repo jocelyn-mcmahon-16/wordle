@@ -17,6 +17,19 @@ const int MATCH = 2;
 const int num_guesses = 6;
 
 ///
+/// Forward declarations
+///
+std::string chooseSolution();
+void raiseCase(std::string &guess);
+bool isValid(std::string solution);
+void checkGuess(std::vector<std::vector<int>> &matches, int tryIndex, std::string solution, std::string guess);
+bool isAllMatch(std::string solution, std::string guess);
+void startGame();
+void printInstructions();
+void printGuesses(std::vector<std::string> tries, std::vector<std::vector<int>> matches, int attempt);
+void checkAttempts(int attempt, std::string solution, std::string guess);
+
+///
 /// a function to choose one random word from options read in from a text file
 /// no required input
 /// reads in the words in solutions.txt, our dictionary file, line by line into the vector solutions
