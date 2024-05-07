@@ -24,8 +24,8 @@ int main() {
     raiseCase(solution);
 
 
-    startGame(tries, matches, attempt);
-    printInstructions(attempt);
+    startGame();
+    printInstructions();
 
     while (attempt < attempts) {
       
