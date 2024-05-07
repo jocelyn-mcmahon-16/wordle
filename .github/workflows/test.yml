@@ -19,10 +19,10 @@ jobs:
         run: |
           make wordle
 
-      - name: Run
+      - name: Compile
         run: |
-            ./wordle > wordle.out
+            g++ -o test_wordle test_wordle.cpp
 
-      - name: Test Diff
+      - name: Test
         run: |
-          diff wordle_game.out wordle.out
+            ./test_wordle
