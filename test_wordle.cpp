@@ -17,10 +17,10 @@ int main() {
     std::vector<std::string> tries(attempts);    
     std::vector<std::vector<int>> matches(attempts, std::vector<int>(word_length));
     
-    // just choose a solution that is 5 letters
+    // just choose a solution that is 5 letters for comparison purposes
     std::string solution = "match";
     std::cout << "Testing checkGuess function" << std::endl;
-    std::string guess = "earth";
+    guess = "earth";
     checkGuess(matches, attempt, solution, guess);
 
     
